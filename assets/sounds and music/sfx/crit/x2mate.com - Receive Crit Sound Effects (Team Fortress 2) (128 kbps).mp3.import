@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmmswd6ujydd"
+path="res://.godot/imported/x2mate.com - Receive Crit Sound Effects (Team Fortress 2) (128 kbps).mp3-3c78eda75d78bc998edb01748496eda2.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/crit/x2mate.com - Receive Crit Sound Effects (Team Fortress 2) (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Receive Crit Sound Effects (Team Fortress 2) (128 kbps).mp3-3c78eda75d78bc998edb01748496eda2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

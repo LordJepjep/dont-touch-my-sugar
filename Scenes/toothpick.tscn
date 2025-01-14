@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv3cmon7wlv7k"]
+
+[ext_resource type="Script" path="res://Scenes/toothpick.gd" id="1_1n7vb"]
+[ext_resource type="Texture2D" uid="uid://wgffsqcogdfn" path="res://assets/toothpick/toothpick.png" id="2_qdqlq"]
+[ext_resource type="AudioStream" uid="uid://b587t0nsvpfcy" path="res://assets/sounds and music/sfx/toothpick hit/hitmarker_2.mp3" id="3_17v6i"]
+[ext_resource type="AudioStream" uid="uid://coews0p827j61" path="res://assets/sounds and music/sfx/toothpick shoot/shoot-arrow.mp3" id="4_kk3aa"]
+[ext_resource type="AudioStream" uid="uid://byfbxagb8jexc" path="res://assets/sounds and music/sfx/toothpick break/stick snap.mp3" id="5_5mw7w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2mwq"]
+height = 137.539
+
+[node name="Toothpick" type="Area2D" groups=["attack"]]
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_1n7vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.872665
+shape = SubResource("CapsuleShape2D_w2mwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.523599
+scale = Vector2(0.027, 0.032)
+texture = ExtResource("2_qdqlq")
+flip_v = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="hit_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_17v6i")
+volume_db = -10.0
+pitch_scale = 0.9
+
+[node name="shoot_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kk3aa")
+volume_db = -20.0
+autoplay = true
+
+[node name="break_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5mw7w")
+volume_db = 1.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.141199, 0.118479)
+rotation = -0.872665
+scale = Vector2(1, 7.3611)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

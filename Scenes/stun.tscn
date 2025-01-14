@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://jrbeukg85w5m"]
+
+[ext_resource type="Texture2D" uid="uid://bqvi6qm3ye0dn" path="res://assets/fx/stun2.png" id="1_vxiwp"]
+[ext_resource type="Texture2D" uid="uid://0bmgghc3ohyb" path="res://assets/fx/stun3.png" id="2_x2j4g"]
+[ext_resource type="Texture2D" uid="uid://cndvtq721kpra" path="res://assets/fx/stun4.png" id="3_46130"]
+[ext_resource type="Texture2D" uid="uid://d2ugumbvmjkyl" path="res://assets/fx/stun1.png" id="4_gnkm1"]
+[ext_resource type="Script" path="res://Scripts/stun.gd" id="5_qerc2"]
+[ext_resource type="AudioStream" uid="uid://b2qxvofvlu16y" path="res://assets/sounds and music/sfx/stun/Bonk Sound Effect.mp3" id="5_skbjn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngum2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vxiwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x2j4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_46130")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gnkm1")
+}],
+"loop": true,
+"name": &"stunned",
+"speed": 5.0
+}]
+
+[node name="Stun" type="AnimatedSprite2D" groups=["fx"]]
+top_level = true
+scale = Vector2(0.01, 0.01)
+sprite_frames = SubResource("SpriteFrames_ngum2")
+animation = &"stunned"
+autoplay = "stunned"
+frame = 1
+frame_progress = 0.281854
+script = ExtResource("5_qerc2")
+
+[node name="snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_skbjn")
+volume_db = -15.0

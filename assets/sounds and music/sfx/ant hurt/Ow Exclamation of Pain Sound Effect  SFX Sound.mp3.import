@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2qw31iq3egk8"
+path="res://.godot/imported/Ow Exclamation of Pain Sound Effect  SFX Sound.mp3-7b1f7585052c780867351d8b5650f140.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/ant hurt/Ow Exclamation of Pain Sound Effect  SFX Sound.mp3"
+dest_files=["res://.godot/imported/Ow Exclamation of Pain Sound Effect  SFX Sound.mp3-7b1f7585052c780867351d8b5650f140.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

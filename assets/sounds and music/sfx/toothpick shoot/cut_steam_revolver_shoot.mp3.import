@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csf1t2h4yt4ll"
+path="res://.godot/imported/cut_steam_revolver_shoot.mp3-9b110fe7fefe14b839ac239df71b7794.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/toothpick shoot/cut_steam_revolver_shoot.mp3"
+dest_files=["res://.godot/imported/cut_steam_revolver_shoot.mp3-9b110fe7fefe14b839ac239df71b7794.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

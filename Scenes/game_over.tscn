@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://bny5f6efmcad6"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_3523u"]
+[ext_resource type="Texture2D" uid="uid://cgmuavslktiok" path="res://assets/menu/game over panel.png" id="2_ek35v"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="2_sb875"]
+[ext_resource type="AudioStream" uid="uid://25mk10ep4lew" path="res://assets/sounds and music/sfx/button click/pop.mp3" id="3_gunww"]
+[ext_resource type="Texture2D" uid="uid://bw8gt7bleiw7p" path="res://assets/menu/retry.png" id="4_u87jw"]
+[ext_resource type="Texture2D" uid="uid://c6oea6axv8pkh" path="res://assets/menu/retry pressed.png" id="5_hrjjv"]
+[ext_resource type="Texture2D" uid="uid://dfeyiywmbe7c8" path="res://assets/menu/quit.png" id="6_yapc6"]
+[ext_resource type="Texture2D" uid="uid://c63mtta4rkgyr" path="res://assets/menu/quit pressed.png" id="7_mbttx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fwve0"]
+font = ExtResource("2_sb875")
+font_size = 70
+font_color = Color(1, 0.87451, 0.858824, 1)
+outline_size = 5
+outline_color = Color(0.243137, 0.00784314, 0.0823529, 1)
+shadow_size = 10
+shadow_color = Color(0.313726, 0, 0, 0.905882)
+shadow_offset = Vector2(-10, 3)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3523u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 0.556863)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -367.0
+offset_right = 283.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Panel"]
+self_modulate = Color(1, 0.517647, 0.396078, 1)
+layout_mode = 0
+offset_right = 570.0
+offset_bottom = 734.0
+texture = ExtResource("2_ek35v")
+expand_mode = 3
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -283.0
+offset_top = 108.0
+offset_right = 287.0
+offset_bottom = 194.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_fwve0")
+horizontal_alignment = 1
+
+[node name="RetryButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -18.0
+offset_right = 259.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_u87jw")
+texture_pressed = ExtResource("5_hrjjv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="QuitButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = 135.0
+offset_right = 259.0
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_yapc6")
+texture_pressed = ExtResource("7_mbttx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Score" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 182.0
+offset_right = 566.0
+offset_bottom = 349.0
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_sb875")
+theme_override_font_sizes/font_size = 30
+text = "Score:"
+horizontal_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="Panel/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_sb875")
+theme_override_font_sizes/font_size = 50
+text = "999999999999"
+horizontal_alignment = 1
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("3_gunww")
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

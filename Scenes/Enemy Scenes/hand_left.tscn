@@ -1,0 +1,193 @@
+[gd_scene load_steps=29 format=3 uid="uid://cxt7ql8643mm1"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_7tbmr"]
+[ext_resource type="Resource" uid="uid://d4a47cl65phvv" path="res://Resources/Enemy Resources/hand.tres" id="2_orfeq"]
+[ext_resource type="Shader" uid="uid://dn1utvio5v5wd" path="res://assets/shaders/hit_flash.res" id="3_mu7fv"]
+[ext_resource type="Texture2D" uid="uid://drcbp0hjp3atc" path="res://assets/hand/hand1.png" id="5_55nqu"]
+[ext_resource type="Texture2D" uid="uid://dd2riesg0bysw" path="res://assets/hand/hand2.png" id="6_a5ldc"]
+[ext_resource type="Texture2D" uid="uid://bdrh5cj268a75" path="res://assets/hand/hand3.png" id="7_aybwu"]
+[ext_resource type="Texture2D" uid="uid://bkapfh403u5kb" path="res://assets/hand/hand4.png" id="8_lrros"]
+[ext_resource type="Texture2D" uid="uid://c821wr6o25pr4" path="res://assets/hand/hand5.png" id="9_3b20q"]
+[ext_resource type="Texture2D" uid="uid://bjryokk1w10w4" path="res://assets/hand/hand6 (1).png" id="10_utp87"]
+[ext_resource type="Texture2D" uid="uid://cd8p77vdtq6is" path="res://assets/hand/hand7.png" id="11_p5lg0"]
+[ext_resource type="Texture2D" uid="uid://djqk02l1mhhdp" path="res://assets/hand/hand8.png" id="12_otf6k"]
+[ext_resource type="Texture2D" uid="uid://1dpglxdqt3mx" path="res://assets/hand/hand9.png" id="13_1ncg5"]
+[ext_resource type="Texture2D" uid="uid://dwsddmycntfr" path="res://assets/hand/hand10.png" id="14_gxtgc"]
+[ext_resource type="Texture2D" uid="uid://c4jm5xufhh4gn" path="res://assets/hand/hand11.png" id="15_ws6ss"]
+[ext_resource type="Texture2D" uid="uid://b7n7xn16rx2ug" path="res://assets/hand/hand12.png" id="16_hc5pl"]
+[ext_resource type="PackedScene" uid="uid://b1j1wqgrvlfm5" path="res://Scenes/hurt_box.tscn" id="17_2qynb"]
+[ext_resource type="AudioStream" uid="uid://kmjwbutdm0w1" path="res://assets/sounds and music/sfx/hand hurt/Smack Sound Effect.mp3" id="17_3j41l"]
+[ext_resource type="PackedScene" uid="uid://bvn5id868ppiy" path="res://Scenes/hit_box.tscn" id="18_lhl2c"]
+[ext_resource type="AudioStream" uid="uid://bud4l6sxhajeg" path="res://assets/sounds and music/sfx/crit/critical-hit-sounds-effect.mp3" id="20_vrsa7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xpio"]
+radius = 124.0
+height = 368.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akioi"]
+resource_local_to_scene = true
+shader = ExtResource("3_mu7fv")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fs06d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_55nqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a5ldc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aybwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lrros")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3b20q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_utp87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p5lg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_otf6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ncg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gxtgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ws6ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hc5pl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_xgv4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mn12p"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8lfd"]
+_data = {
+"RESET": SubResource("Animation_xgv4s"),
+"hit_flash": SubResource("Animation_mn12p")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13ln8"]
+radius = 18.0
+height = 96.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3mp8"]
+size = Vector2(336, 392)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xkoe"]
+size = Vector2(280, 120)
+
+[node name="HandLeft" type="CharacterBody2D" groups=["enemy_group", "hand"]]
+collision_layer = 5
+input_pickable = true
+script = ExtResource("1_7tbmr")
+resource = ExtResource("2_orfeq")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(4, 8)
+shape = SubResource("CapsuleShape2D_3xpio")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_akioi")
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.15, 0.162)
+sprite_frames = SubResource("SpriteFrames_fs06d")
+animation = &"walk"
+frame_progress = 0.805731
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_3j41l")
+volume_db = -20.0
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o8lfd")
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 0.898039, 0.705882, 1)
+position = Vector2(8, 16)
+scale = Vector2(10, 4.55)
+shape = SubResource("CapsuleShape2D_13ln8")
+action = "click"
+visibility_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="HurtBox" parent="." instance=ExtResource("17_2qynb")]
+collision_layer = 5
+collision_mask = 5
+hurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(8, 4)
+shape = SubResource("RectangleShape2D_p3mp8")
+metadata/_edit_lock_ = true
+
+[node name="HitBox" parent="." instance=ExtResource("18_lhl2c")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-4, -132)
+shape = SubResource("RectangleShape2D_1xkoe")
+debug_color = Color(0.94902, 0.12549, 0.47451, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="crit_snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_vrsa7")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://d20l2w1vkd71l"]
+
+[ext_resource type="Script" path="res://Scripts/Shockwave.gd" id="1_itoq5"]
+[ext_resource type="Texture2D" uid="uid://c8gwcwdy6dch1" path="res://assets/attack_explosion/explosion-f7.png" id="2_7vgj8"]
+[ext_resource type="Texture2D" uid="uid://beawl6s1i5nr2" path="res://assets/attack_explosion/explosion-f1.png" id="2_sg054"]
+[ext_resource type="Texture2D" uid="uid://bhpnbk06crcqe" path="res://assets/attack_explosion/explosion-f2.png" id="3_xg0k3"]
+[ext_resource type="Texture2D" uid="uid://6f3myeeuiovh" path="res://assets/attack_explosion/explosion-f5.png" id="4_iow4i"]
+[ext_resource type="Texture2D" uid="uid://c8lgilre0c4fv" path="res://assets/attack_explosion/explosion-f6.png" id="5_x6q44"]
+[ext_resource type="Texture2D" uid="uid://dmoysng8irktp" path="res://assets/attack_explosion/explosion-f8.png" id="7_uc8gi"]
+[ext_resource type="AudioStream" uid="uid://b00x7c0kgyec" path="res://assets/sounds and music/sfx/shockwave/thud sound effect.mp3" id="8_4j2dt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2irsh"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_sg054")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_xg0k3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_iow4i")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_x6q44")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_7vgj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uc8gi")
+}],
+"loop": false,
+"name": &"shockwave",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wr4x"]
+radius = 26.0
+
+[node name="Shockwave" type="Node2D" groups=["shocks"]]
+script = ExtResource("1_itoq5")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2irsh")
+animation = &"shockwave"
+autoplay = "shockwave"
+frame = 5
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4wr4x")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4j2dt")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

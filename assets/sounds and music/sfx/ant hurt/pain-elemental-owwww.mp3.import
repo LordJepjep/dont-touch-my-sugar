@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv1xxnlb58xy8"
+path="res://.godot/imported/pain-elemental-owwww.mp3-5ffa576c67ffc64c3c2c8395b2f29df4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/ant hurt/pain-elemental-owwww.mp3"
+dest_files=["res://.godot/imported/pain-elemental-owwww.mp3-5ffa576c67ffc64c3c2c8395b2f29df4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

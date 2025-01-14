@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lp2fi6itcjf"
+path="res://.godot/imported/Cartoon Poof - Sound Effect.mp3-b44954a7f8953992d405cd59af9f64db.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/Cartoon Poof - Sound Effect.mp3"
+dest_files=["res://.godot/imported/Cartoon Poof - Sound Effect.mp3-b44954a7f8953992d405cd59af9f64db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

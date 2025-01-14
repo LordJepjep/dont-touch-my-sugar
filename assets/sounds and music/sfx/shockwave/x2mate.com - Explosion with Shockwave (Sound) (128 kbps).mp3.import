@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uvt3h0r8ajak"
+path="res://.godot/imported/x2mate.com - Explosion with Shockwave (Sound) (128 kbps).mp3-1e0cf6adf604f30fe66e55173423e5de.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/shockwave/x2mate.com - Explosion with Shockwave (Sound) (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Explosion with Shockwave (Sound) (128 kbps).mp3-1e0cf6adf604f30fe66e55173423e5de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

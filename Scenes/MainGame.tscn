@@ -1,0 +1,303 @@
+[gd_scene load_steps=26 format=3 uid="uid://cliujtcv8sio0"]
+
+[ext_resource type="PackedScene" uid="uid://bnpldv7jlusky" path="res://Scenes/sugar.tscn" id="1_4hoyo"]
+[ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_j4dnk"]
+[ext_resource type="PackedScene" uid="uid://bny5f6efmcad6" path="res://Scenes/game_over.tscn" id="2_cj4mb"]
+[ext_resource type="AudioStream" uid="uid://cgvhksn7j2bld" path="res://assets/sounds and music/music/Pou game over sound effect.mp3" id="3_mwgj1"]
+[ext_resource type="Texture2D" uid="uid://ca26sa8chylew" path="res://assets/menu/BG in game.png" id="3_tdo1e"]
+[ext_resource type="PackedScene" uid="uid://bwk1lyhrbpvox" path="res://Scenes/pause_screen.tscn" id="4_lro6b"]
+[ext_resource type="PackedScene" uid="uid://b0et7vwd5b5yc" path="res://Utility/enemy_spawner.tscn" id="5_xx0aq"]
+[ext_resource type="Texture2D" uid="uid://c4x174lu7s34a" path="res://assets/progressbar/BAR OUTLINE.png" id="6_inqog"]
+[ext_resource type="Texture2D" uid="uid://bs0xcfd3yw164" path="res://assets/progressbar/XPBAR OUTLINE.png" id="6_veflf"]
+[ext_resource type="Texture2D" uid="uid://bt2rk8oml4cdq" path="res://assets/progressbar/BAR FILL.png" id="7_0ewhn"]
+[ext_resource type="Texture2D" uid="uid://c20eqc43f6ug0" path="res://assets/progressbar/XPBAR PROGESS.png" id="7_cu5lt"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="8_6hdvh"]
+[ext_resource type="Texture2D" uid="uid://bxcrm5y2ittod" path="res://assets/upgrades/upgrade_visuals/toothpick dispenser1.png" id="8_peruo"]
+[ext_resource type="AudioStream" uid="uid://d240xtt624lbw" path="res://assets/sounds and music/sfx/lvl/Level Up Sound Effect.mp3" id="11_qsfjk"]
+[ext_resource type="AudioStream" uid="uid://c0hf2fr8crmtf" path="res://assets/sounds and music/sfx/lvl/Upgrade Sound Effect.mp3" id="12_70ha5"]
+[ext_resource type="AudioStream" uid="uid://wo7lv7amb77i" path="res://assets/sounds and music/music/Glorious Morning 2.mp3" id="12_mkc34"]
+[ext_resource type="Texture2D" uid="uid://dkkqrtll62inn" path="res://assets/menu/btn_burger2 2.png" id="13_endki"]
+[ext_resource type="Texture2D" uid="uid://bjaclsmtrct24" path="res://assets/menu/btn_burger2.png" id="14_tqo84"]
+[ext_resource type="AudioStream" uid="uid://25mk10ep4lew" path="res://assets/sounds and music/sfx/button click/pop.mp3" id="15_noi84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hr3n"]
+size = Vector2(992, 18.4609)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43r2c"]
+size = Vector2(992, 137.844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oungg"]
+size = Vector2(964, 283)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isrv3"]
+size = Vector2(1400, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqt2a"]
+size = Vector2(1400, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrug7"]
+size = Vector2(729, 997)
+
+[node name="MainGame" type="Node2D" groups=["main"]]
+script = ExtResource("1_j4dnk")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="GameOver" parent="UILayer" instance=ExtResource("2_cj4mb")]
+visible = false
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+
+[node name="gameover_snd" type="AudioStreamPlayer2D" parent="UILayer/GameOver"]
+process_mode = 3
+stream = ExtResource("3_mwgj1")
+volume_db = -7.0
+
+[node name="Pause" parent="UILayer" instance=ExtResource("4_lro6b")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="GameArea" type="ColorRect" parent="Area2D"]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 721.0
+offset_bottom = 1290.0
+color = Color(0, 0.490196, 1, 0.396078)
+
+[node name="GameBG" type="TextureRect" parent="Area2D"]
+modulate = Color(0.819608, 0.831373, 0.92549, 1)
+offset_right = 721.0
+offset_bottom = 1280.0
+texture = ExtResource("3_tdo1e")
+expand_mode = 1
+
+[node name="UpgradeVisuals" type="Node2D" parent="."]
+
+[node name="ToothpickDispenser" type="Sprite2D" parent="UpgradeVisuals" groups=["toothpick_dispenser"]]
+visible = false
+position = Vector2(632, 264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_peruo")
+flip_h = true
+
+[node name="sugar" parent="." instance=ExtResource("1_4hoyo")]
+position = Vector2(357, 273)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_xx0aq")]
+position = Vector2(-31.2082, -10.7681)
+
+[node name="OneWaySpawnWall" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="SpawnBoundary" type="CollisionShape2D" parent="OneWaySpawnWall"]
+position = Vector2(384, 1286.77)
+shape = SubResource("RectangleShape2D_7hr3n")
+one_way_collision = true
+debug_color = Color(0.807843, 0.00392157, 0.980392, 0.419608)
+
+[node name="SpawnBoundary2" type="CollisionShape2D" parent="OneWaySpawnWall"]
+position = Vector2(357, 1548.92)
+shape = SubResource("RectangleShape2D_43r2c")
+one_way_collision = true
+debug_color = Color(0.807843, 0.00392157, 0.980392, 0.419608)
+
+[node name="SugarBoundaryContainer" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SugarBoundaryContainer"]
+position = Vector2(376, 131.5)
+shape = SubResource("RectangleShape2D_oungg")
+debug_color = Color(0.737255, 0.470588, 0.027451, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SugarBoundaryContainer"]
+position = Vector2(-10, 932)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_isrv3")
+one_way_collision = true
+debug_color = Color(0.717647, 0.482353, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SugarBoundaryContainer"]
+position = Vector2(724, 964)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_tqt2a")
+one_way_collision = true
+debug_color = Color(0.741176, 0.462745, 0.0196078, 0.419608)
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 721.0
+offset_bottom = 198.0
+
+[node name="XPBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 8.0
+offset_right = 3050.0
+offset_bottom = 621.0
+scale = Vector2(0.235, 0.235)
+texture_under = ExtResource("6_veflf")
+texture_progress = ExtResource("7_cu5lt")
+
+[node name="LevelLabel" type="Label" parent="GUILayer/GUI/XPBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.511
+offset_top = -238.415
+offset_right = -248.511
+offset_bottom = -217.415
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("8_6hdvh")
+theme_override_font_sizes/font_size = 18
+text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
+process_mode = 2
+self_modulate = Color(1, 0.976471, 0.984314, 1)
+layout_mode = 0
+offset_left = 1968.0
+offset_top = 416.0
+offset_right = 2668.0
+offset_bottom = 1287.0
+
+[node name="LevelUpLabel" type="Label" parent="GUILayer/GUI/LevelUp"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("8_6hdvh")
+theme_override_font_sizes/font_size = 48
+text = "Leveled Up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 135.0
+offset_right = 675.0
+offset_bottom = 847.0
+alignment = 1
+
+[node name="SugarHPBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = 168.0
+offset_right = 3330.0
+offset_bottom = 781.0
+scale = Vector2(0.05, 0.05)
+value = 100.0
+texture_under = ExtResource("6_inqog")
+texture_progress = ExtResource("7_0ewhn")
+
+[node name="TimerLabel" type="Label" parent="GUILayer/GUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_top = -102.0
+offset_right = 73.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("8_6hdvh")
+theme_override_font_sizes/font_size = 48
+text = "00:00"
+
+[node name="CollectedWeapons" type="GridContainer" parent="GUILayer/GUI"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 100.0
+offset_right = 274.0
+offset_bottom = 150.0
+columns = 5
+
+[node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 274.0
+offset_bottom = 210.0
+columns = 5
+
+[node name="PauseButton" type="TextureButton" parent="GUILayer/GUI"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 96.0
+offset_right = 696.0
+offset_bottom = 219.0
+texture_normal = ExtResource("13_endki")
+texture_pressed = ExtResource("14_tqo84")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="ToothpickTimer" type="Timer" parent="Attack"]
+wait_time = 1.5
+
+[node name="ToothpickAttackTimer" type="Timer" parent="Attack/ToothpickTimer"]
+wait_time = 0.075
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+position = Vector2(354.5, 493.5)
+shape = SubResource("RectangleShape2D_xrug7")
+debug_color = Color(0.552941, 0.45098, 0.870588, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_noi84")
+
+[node name="upgrade_snd" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("12_70ha5")
+volume_db = 5.0
+pitch_scale = 1.5
+
+[node name="lvlUp_snd" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("11_qsfjk")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("12_mkc34")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="GUILayer/GUI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="timeout" from="Attack/ToothpickTimer" to="." method="_on_toothpick_timer_timeout"]
+[connection signal="timeout" from="Attack/ToothpickTimer/ToothpickAttackTimer" to="." method="_on_toothpick_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+[connection signal="finished" from="BGM" to="." method="_on_bgm_finished"]

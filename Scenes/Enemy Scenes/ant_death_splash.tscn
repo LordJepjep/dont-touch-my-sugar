@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://dye58s2w60iw"]
+
+[ext_resource type="Texture2D" uid="uid://dnwdlfhq8un3p" path="res://assets/ants/death/blood1st.png" id="1_wvbb2"]
+[ext_resource type="Texture2D" uid="uid://bohh8s5nrllwm" path="res://assets/ants/death/blood2nd.png" id="2_8s2o4"]
+[ext_resource type="Texture2D" uid="uid://oewgam7l35yj" path="res://assets/ants/death/blood3rd.png" id="3_4qlup"]
+[ext_resource type="Texture2D" uid="uid://xu5pc7lm66pa" path="res://assets/ants/death/blood4th.png" id="4_cliph"]
+[ext_resource type="Texture2D" uid="uid://dd41wa47bnfty" path="res://assets/ants/death/blood5th.png" id="5_rgkax"]
+[ext_resource type="Texture2D" uid="uid://co8icrnibfnkp" path="res://assets/ants/death/blood6th.png" id="6_ixie5"]
+[ext_resource type="Script" path="res://Scripts/ant_death_splash.gd" id="7_te5rv"]
+[ext_resource type="Texture2D" uid="uid://cc4ims4mbxb7g" path="res://assets/ants/death/blood7th.png" id="7_x67y2"]
+[ext_resource type="AudioStream" uid="uid://uvyjdefugqk6" path="res://assets/sounds and music/sfx/ant death/cartoon-splat-6086.mp3" id="8_odtbh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7ee7"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_wvbb2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_8s2o4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_4qlup")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_cliph")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_rgkax")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_ixie5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x67y2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AntDeathSplash" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_n7ee7")
+autoplay = "default"
+script = ExtResource("7_te5rv")
+
+[node name="snd_die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_odtbh")
+volume_db = -10.0
+autoplay = true

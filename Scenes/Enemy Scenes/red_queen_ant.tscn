@@ -1,0 +1,164 @@
+[gd_scene load_steps=22 format=3 uid="uid://cfk6vbpv3h5mf"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_nckvt"]
+[ext_resource type="Resource" uid="uid://c6qbf2guvs60a" path="res://Resources/Enemy Resources/red_queen_ant.tres" id="2_ls53e"]
+[ext_resource type="Shader" uid="uid://dn1utvio5v5wd" path="res://assets/shaders/hit_flash.res" id="3_4nto8"]
+[ext_resource type="Texture2D" uid="uid://duu2cvsp7f6er" path="res://assets/ants/red_ants/QUEEN RED/queenspawn-removebg-preview.png" id="4_b4t3n"]
+[ext_resource type="Texture2D" uid="uid://cl5s0lumx2rfb" path="res://assets/ants/red_ants/QUEEN RED/queenwalk1-removebg-preview.png" id="5_keeod"]
+[ext_resource type="Texture2D" uid="uid://d072fgl1dhvso" path="res://assets/ants/red_ants/QUEEN RED/queenwalk2-removebg-preview.png" id="6_pa2me"]
+[ext_resource type="Texture2D" uid="uid://btna3b3w4vv3g" path="res://assets/ants/red_ants/QUEEN RED/queenwalk3-removebg-preview.png" id="7_rhjx3"]
+[ext_resource type="Texture2D" uid="uid://baixxs6j1rddn" path="res://assets/ants/red_ants/QUEEN RED/queenwalk4-removebg-preview.png" id="8_u4cuc"]
+[ext_resource type="AudioStream" uid="uid://d2qw31iq3egk8" path="res://assets/sounds and music/sfx/ant hurt/Ow Exclamation of Pain Sound Effect  SFX Sound.mp3" id="9_2omna"]
+[ext_resource type="AudioStream" uid="uid://bud4l6sxhajeg" path="res://assets/sounds and music/sfx/crit/critical-hit-sounds-effect.mp3" id="12_4bgfo"]
+[ext_resource type="PackedScene" uid="uid://b1j1wqgrvlfm5" path="res://Scenes/hurt_box.tscn" id="13_7jw02"]
+[ext_resource type="PackedScene" uid="uid://bvn5id868ppiy" path="res://Scenes/hit_box.tscn" id="14_e71dl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkbte"]
+resource_local_to_scene = true
+shader = ExtResource("3_4nto8")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n1lq"]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": ExtResource("4_b4t3n")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_keeod")
+}, {
+"duration": 0.75,
+"texture": ExtResource("6_pa2me")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_rhjx3")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_u4cuc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xpio"]
+radius = 52.0
+height = 228.0
+
+[sub_resource type="Animation" id="Animation_1l0et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d8hq8"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dlbxy"]
+_data = {
+"RESET": SubResource("Animation_1l0et"),
+"hit_flash": SubResource("Animation_d8hq8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0atib"]
+size = Vector2(103, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxdrm"]
+size = Vector2(60.8334, 23.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lule8"]
+
+[node name="RedQueenAnt" type="CharacterBody2D" groups=["enemy_group"]]
+collision_layer = 5
+input_pickable = true
+script = ExtResource("1_nckvt")
+resource = ExtResource("2_ls53e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_nkbte")
+position = Vector2(-2, -2)
+scale = Vector2(0.75, 0.716)
+sprite_frames = SubResource("SpriteFrames_1n1lq")
+animation = &"walk"
+frame_progress = 0.408733
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 8)
+shape = SubResource("CapsuleShape2D_3xpio")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("9_2omna")
+volume_db = -20.0
+pitch_scale = 3.0
+autoplay = true
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dlbxy")
+}
+
+[node name="HurtBox" parent="." instance=ExtResource("13_7jw02")]
+collision_layer = 4
+collision_mask = 4
+hurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(-4.5, 7)
+shape = SubResource("RectangleShape2D_0atib")
+metadata/_edit_lock_ = true
+
+[node name="HitBox" parent="." instance=ExtResource("14_e71dl")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-6.41668, -94.25)
+shape = SubResource("RectangleShape2D_oxdrm")
+debug_color = Color(0.94902, 0.12549, 0.47451, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(-3.33333, 6)
+scale = Vector2(1.5, 2.75)
+shape = SubResource("CapsuleShape2D_lule8")
+action = "click"
+visibility_mode = 1
+
+[node name="crit_snd" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("12_4bgfo")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

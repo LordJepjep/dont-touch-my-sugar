@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y3n6g6xbx5x6"
+path="res://.godot/imported/x2mate.com - Stun Stick Sound Effect (128 kbps).mp3-0be6cf92457daa9867647d908fde8e21.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/stun/x2mate.com - Stun Stick Sound Effect (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Stun Stick Sound Effect (128 kbps).mp3-0be6cf92457daa9867647d908fde8e21.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5dtoksnbiaw7"
+path="res://.godot/imported/arrow-hit-2.mp3-ca7fdfbb9da67e5d5d1c05d6112bfb1d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/toothpick hit/arrow-hit-2.mp3"
+dest_files=["res://.godot/imported/arrow-hit-2.mp3-ca7fdfbb9da67e5d5d1c05d6112bfb1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

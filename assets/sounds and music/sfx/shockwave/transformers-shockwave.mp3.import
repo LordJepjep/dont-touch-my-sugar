@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6b6pnkyqkh2j"
+path="res://.godot/imported/transformers-shockwave.mp3-03fbb2ca626b7fcb95b6c42aa112ea97.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/shockwave/transformers-shockwave.mp3"
+dest_files=["res://.godot/imported/transformers-shockwave.mp3-03fbb2ca626b7fcb95b6c42aa112ea97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

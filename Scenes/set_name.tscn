@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://cv66t72qfnv4n"]
+
+[ext_resource type="Script" path="res://Scenes/set_name.gd" id="1_byxcs"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="2_4uup8"]
+[ext_resource type="Texture2D" uid="uid://tsyjgc5w8ea4" path="res://assets/menu/x button.png" id="3_d64ql"]
+[ext_resource type="Texture2D" uid="uid://bvjtpdy8847k3" path="res://assets/menu/x button pressed.png" id="4_1vrv3"]
+[ext_resource type="AudioStream" uid="uid://25mk10ep4lew" path="res://assets/sounds and music/sfx/button click/pop.mp3" id="5_8cnmx"]
+[ext_resource type="Texture2D" uid="uid://dh7ukscgr8v4v" path="res://assets/menu/save button.png" id="5_jhqpc"]
+[ext_resource type="Texture2D" uid="uid://cnb45b6mp4qiu" path="res://assets/menu/save button pressed.png" id="6_4jyht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kevei"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 0.556863)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkvgt"]
+load_path = "res://.godot/imported/game over panel.png-3dc6cd97e4522d28c1a40fa36914add9.ctex"
+
+[node name="SetName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byxcs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.972549, 0.972549, 0.972549, 0.0392157)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kevei")
+
+[node name="BG" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 698.002
+offset_top = 240.002
+offset_right = 1372.0
+offset_bottom = 914.002
+rotation = 1.5708
+texture = SubResource("CompressedTexture2D_jkvgt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SetNameLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.0
+offset_top = 352.0
+offset_right = 274.0
+offset_bottom = 436.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.0666667, 0.00784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_4uup8")
+theme_override_font_sizes/font_size = 75
+text = "Set Name"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 587.002
+offset_top = 382.002
+offset_right = 756.002
+offset_bottom = 516.002
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_d64ql")
+texture_pressed = ExtResource("4_1vrv3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SaveButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 243.002
+offset_top = 643.002
+offset_right = 563.002
+offset_bottom = 792.002
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("5_jhqpc")
+texture_pressed = ExtResource("6_4jyht")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NameInput" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 59.0024
+offset_top = 491.002
+offset_right = 666.002
+offset_bottom = 638.002
+theme_override_fonts/font = ExtResource("2_4uup8")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Enter your name here!"
+alignment = 1
+max_length = 32
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_8cnmx")
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/SaveButton" to="." method="_on_save_button_pressed"]

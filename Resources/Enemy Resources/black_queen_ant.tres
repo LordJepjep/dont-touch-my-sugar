@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyResourceBase" load_steps=2 format=3 uid="uid://ykuq1gvj6mcd"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyResourceBase.gd" id="1_ti3ok"]
+
+[resource]
+script = ExtResource("1_ti3ok")
+max_health = 50.0
+speed = 1000.0
+damage = 1.0
+spawn_cost = 0
+xp = 2

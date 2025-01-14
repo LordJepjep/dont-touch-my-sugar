@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccc7lqrybcwhv"]
+
+[ext_resource type="Texture2D" uid="uid://c0x0rtwv4nrtv" path="res://assets/fx/crit 2.png" id="1_l4ulo"]
+[ext_resource type="Texture2D" uid="uid://3slqulmrmwyb" path="res://assets/fx/crit.png" id="2_6iipe"]
+[ext_resource type="Script" path="res://Scripts/crit.gd" id="3_wh5b2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_co0sb"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_l4ulo")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_6iipe")
+}, {
+"duration": 0.5,
+"texture": ExtResource("1_l4ulo")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_6iipe")
+}],
+"loop": true,
+"name": &"crit_fx",
+"speed": 5.0
+}]
+
+[node name="Crit" type="AnimatedSprite2D"]
+top_level = true
+sprite_frames = SubResource("SpriteFrames_co0sb")
+animation = &"crit_fx"
+autoplay = "crit_fx"
+frame = 1
+script = ExtResource("3_wh5b2")

@@ -1,0 +1,205 @@
+[gd_scene load_steps=34 format=3 uid="uid://b0et7vwd5b5yc"]
+
+[ext_resource type="Script" path="res://Utility/enemy_spawner.gd" id="1_p71yi"]
+[ext_resource type="Script" path="res://Utility/spawn_info.gd" id="2_2bt3o"]
+[ext_resource type="PackedScene" uid="uid://c6crfbxswbvht" path="res://Scenes/Enemy Scenes/black_worker_ant.tscn" id="2_2bv1o"]
+[ext_resource type="PackedScene" uid="uid://dpaycvyqvmblm" path="res://Scenes/Enemy Scenes/black_soldier_ant.tscn" id="4_cfwkb"]
+[ext_resource type="PackedScene" uid="uid://c8xwig6sp48pp" path="res://Scenes/Enemy Scenes/black_queen_ant.tscn" id="5_1e0tx"]
+[ext_resource type="PackedScene" uid="uid://ri5hnikaimy" path="res://Scenes/Enemy Scenes/red_worker_ant.tscn" id="6_64kay"]
+[ext_resource type="PackedScene" uid="uid://8dhe2w2q7345" path="res://Scenes/Enemy Scenes/red_soldier_ant.tscn" id="7_jhg3y"]
+[ext_resource type="PackedScene" uid="uid://cfk6vbpv3h5mf" path="res://Scenes/Enemy Scenes/red_queen_ant.tscn" id="8_rxnyp"]
+[ext_resource type="PackedScene" uid="uid://dffxygbfn1uo6" path="res://Scenes/Enemy Scenes/hand.tscn" id="9_ob76e"]
+[ext_resource type="PackedScene" uid="uid://cxt7ql8643mm1" path="res://Scenes/Enemy Scenes/hand_left.tscn" id="10_mtnh6"]
+
+[sub_resource type="Resource" id="Resource_7awgp"]
+script = ExtResource("2_2bt3o")
+time_start = 0
+time_end = 60
+enemy = ExtResource("2_2bv1o")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_vmj1t"]
+script = ExtResource("2_2bt3o")
+time_start = 30
+time_end = 60
+enemy = ExtResource("2_2bv1o")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_2u4rh"]
+script = ExtResource("2_2bt3o")
+time_start = 0
+time_end = 60
+enemy = ExtResource("4_cfwkb")
+enemy_num = 1
+enemy_spawn_delay = 25.0
+
+[sub_resource type="Resource" id="Resource_cvnbq"]
+script = ExtResource("2_2bt3o")
+time_start = 60
+time_end = 60
+enemy = ExtResource("5_1e0tx")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_vynrx"]
+script = ExtResource("2_2bt3o")
+time_start = 60
+time_end = 120
+enemy = ExtResource("4_cfwkb")
+enemy_num = 1
+enemy_spawn_delay = 15.0
+
+[sub_resource type="Resource" id="Resource_sjr0r"]
+script = ExtResource("2_2bt3o")
+time_start = 60
+time_end = 120
+enemy = ExtResource("2_2bv1o")
+enemy_num = 2
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_m5785"]
+script = ExtResource("2_2bt3o")
+time_start = 130
+time_end = 300
+enemy = ExtResource("6_64kay")
+enemy_num = 2
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_r13tb"]
+script = ExtResource("2_2bt3o")
+time_start = 130
+time_end = 300
+enemy = ExtResource("7_jhg3y")
+enemy_num = 1
+enemy_spawn_delay = 30.0
+
+[sub_resource type="Resource" id="Resource_icbdl"]
+script = ExtResource("2_2bt3o")
+time_start = 200
+time_end = 200
+enemy = ExtResource("8_rxnyp")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_j5vc7"]
+script = ExtResource("2_2bt3o")
+time_start = 240
+time_end = 360
+enemy = ExtResource("6_64kay")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_231ht"]
+script = ExtResource("2_2bt3o")
+time_start = 260
+time_end = 360
+enemy = ExtResource("7_jhg3y")
+enemy_num = 1
+enemy_spawn_delay = 20.0
+
+[sub_resource type="Resource" id="Resource_6mg84"]
+script = ExtResource("2_2bt3o")
+time_start = 300
+time_end = 300
+enemy = ExtResource("8_rxnyp")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_rwb4n"]
+script = ExtResource("2_2bt3o")
+time_start = 400
+time_end = 400
+enemy = ExtResource("9_ob76e")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_ugo36"]
+script = ExtResource("2_2bt3o")
+time_start = 440
+time_end = 440
+enemy = ExtResource("10_mtnh6")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_ca74j"]
+script = ExtResource("2_2bt3o")
+time_start = 440
+time_end = 440
+enemy = ExtResource("9_ob76e")
+enemy_num = 1
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_mpkbk"]
+script = ExtResource("2_2bt3o")
+time_start = 500
+time_end = 99999
+enemy = ExtResource("2_2bv1o")
+enemy_num = 2
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_1j0jy"]
+script = ExtResource("2_2bt3o")
+time_start = 500
+time_end = 99999
+enemy = ExtResource("6_64kay")
+enemy_num = 2
+enemy_spawn_delay = 0.0
+
+[sub_resource type="Resource" id="Resource_fv3nl"]
+script = ExtResource("2_2bt3o")
+time_start = 600
+time_end = 99999
+enemy = ExtResource("4_cfwkb")
+enemy_num = 1
+enemy_spawn_delay = 20.0
+
+[sub_resource type="Resource" id="Resource_ff7sd"]
+script = ExtResource("2_2bt3o")
+time_start = 600
+time_end = 99999
+enemy = ExtResource("7_jhg3y")
+enemy_num = 1
+enemy_spawn_delay = 30.0
+
+[sub_resource type="Resource" id="Resource_iq32p"]
+script = ExtResource("2_2bt3o")
+time_start = 660
+time_end = 99999
+enemy = ExtResource("5_1e0tx")
+enemy_num = 1
+enemy_spawn_delay = 120.0
+
+[sub_resource type="Resource" id="Resource_55nhe"]
+script = ExtResource("2_2bt3o")
+time_start = 660
+time_end = 99999
+enemy = ExtResource("8_rxnyp")
+enemy_num = 1
+enemy_spawn_delay = 150.0
+
+[sub_resource type="Resource" id="Resource_4d6vr"]
+script = ExtResource("2_2bt3o")
+time_start = 720
+time_end = 99999
+enemy = ExtResource("9_ob76e")
+enemy_num = 1
+enemy_spawn_delay = 240.0
+
+[sub_resource type="Resource" id="Resource_swdos"]
+script = ExtResource("2_2bt3o")
+time_start = 720
+time_end = 99999
+enemy = ExtResource("10_mtnh6")
+enemy_num = 1
+enemy_spawn_delay = 240.0
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_p71yi")
+spawns = Array[ExtResource("2_2bt3o")]([SubResource("Resource_7awgp"), SubResource("Resource_vmj1t"), SubResource("Resource_2u4rh"), SubResource("Resource_cvnbq"), SubResource("Resource_vynrx"), SubResource("Resource_sjr0r"), SubResource("Resource_m5785"), SubResource("Resource_r13tb"), SubResource("Resource_icbdl"), SubResource("Resource_j5vc7"), SubResource("Resource_231ht"), SubResource("Resource_6mg84"), SubResource("Resource_rwb4n"), SubResource("Resource_ugo36"), SubResource("Resource_ca74j"), SubResource("Resource_mpkbk"), SubResource("Resource_1j0jy"), SubResource("Resource_fv3nl"), SubResource("Resource_ff7sd"), SubResource("Resource_iq32p"), SubResource("Resource_55nhe"), SubResource("Resource_4d6vr"), SubResource("Resource_swdos")])
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

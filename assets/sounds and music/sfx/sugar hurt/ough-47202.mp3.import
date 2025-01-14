@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhu8x4yvhuya4"
+path="res://.godot/imported/ough-47202.mp3-d9a388589672ce1525a2e9a697816039.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/sugar hurt/ough-47202.mp3"
+dest_files=["res://.godot/imported/ough-47202.mp3-d9a388589672ce1525a2e9a697816039.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y8vylkxoopsf"
+path="res://.godot/imported/click-mega-ultra-button.mp3-7c6bba409afddea495036ad79db06de8.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/button click/click-mega-ultra-button.mp3"
+dest_files=["res://.godot/imported/click-mega-ultra-button.mp3-7c6bba409afddea495036ad79db06de8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

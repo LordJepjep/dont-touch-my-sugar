@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2dhteibli173"
+path="res://.godot/imported/x2mate.com - Heavy Electric Shockwave Impact Sound Effect (128 kbps).mp3-5acb3e565265f507b1ac4f54e81cf87a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/shockwave/x2mate.com - Heavy Electric Shockwave Impact Sound Effect (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Heavy Electric Shockwave Impact Sound Effect (128 kbps).mp3-5acb3e565265f507b1ac4f54e81cf87a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

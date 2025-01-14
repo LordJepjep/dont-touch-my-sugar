@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct5q1c3qnb72e"
+path="res://.godot/imported/bongo-hit.mp3-2eccc8a99b1882661cd3b67763b5ea7a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/toothpick hit/bongo-hit.mp3"
+dest_files=["res://.godot/imported/bongo-hit.mp3-2eccc8a99b1882661cd3b67763b5ea7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

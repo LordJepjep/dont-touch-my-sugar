@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wv656jp81561"
+path="res://.godot/imported/black-ops-2-hd-dsr-50-gun-sound-hq-download.mp3-a4fb2693843cec708a624f44064258a9.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/toothpick shoot/black-ops-2-hd-dsr-50-gun-sound-hq-download.mp3"
+dest_files=["res://.godot/imported/black-ops-2-hd-dsr-50-gun-sound-hq-download.mp3-a4fb2693843cec708a624f44064258a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

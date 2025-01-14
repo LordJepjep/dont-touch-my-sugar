@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://3v46md37pfhs"]
+
+[ext_resource type="Texture2D" uid="uid://cm1pyhqaqqsda" path="res://assets/menu/itemborder.png" id="1_7r31a"]
+[ext_resource type="Script" path="res://Utility/item_container.gd" id="2_d78l0"]
+[ext_resource type="Texture2D" uid="uid://bfww4vm646dq0" path="res://assets/upgrades/shockwave.png" id="3_3wov0"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="4_up81e"]
+
+[node name="ItemContainer" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_7r31a")
+expand_mode = 1
+script = ExtResource("2_d78l0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 42.0
+offset_bottom = 42.0
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.172549)
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 599.0
+offset_bottom = 557.0
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_3wov0")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.894118, 0.764706, 0, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 55.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0.223529, 0.133333, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_up81e")
+theme_override_font_sizes/font_size = 24

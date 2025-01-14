@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwk1lyhrbpvox"]
+
+[ext_resource type="Script" path="res://pause_screen.gd" id="1_yb4x4"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="2_v7udw"]
+[ext_resource type="AudioStream" uid="uid://25mk10ep4lew" path="res://assets/sounds and music/sfx/button click/pop.mp3" id="3_okixd"]
+[ext_resource type="Texture2D" uid="uid://bw8gt7bleiw7p" path="res://assets/menu/retry.png" id="4_1y6st"]
+[ext_resource type="Texture2D" uid="uid://c6oea6axv8pkh" path="res://assets/menu/retry pressed.png" id="5_q4row"]
+[ext_resource type="Texture2D" uid="uid://dfeyiywmbe7c8" path="res://assets/menu/quit.png" id="6_tu360"]
+[ext_resource type="Texture2D" uid="uid://tsyjgc5w8ea4" path="res://assets/menu/x button.png" id="7_0w28j"]
+[ext_resource type="Texture2D" uid="uid://c63mtta4rkgyr" path="res://assets/menu/quit pressed.png" id="7_mpgls"]
+[ext_resource type="Texture2D" uid="uid://bvjtpdy8847k3" path="res://assets/menu/x button pressed.png" id="8_eoios"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkvgt"]
+load_path = "res://.godot/imported/game over panel.png-3dc6cd97e4522d28c1a40fa36914add9.ctex"
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yb4x4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 0.556863)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -367.0
+offset_right = 283.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 570.0
+offset_bottom = 734.0
+texture = SubResource("CompressedTexture2D_jkvgt")
+expand_mode = 3
+
+[node name="PausedLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 101.0
+offset_right = 570.0
+offset_bottom = 185.0
+theme_override_colors/font_color = Color(1, 0.984314, 0.737255, 1)
+theme_override_colors/font_shadow_color = Color(0.32549, 0.32549, 0, 1)
+theme_override_colors/font_outline_color = Color(0.32549, 0.0745098, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_v7udw")
+theme_override_font_sizes/font_size = 75
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -18.0
+offset_right = 259.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_1y6st")
+texture_pressed = ExtResource("5_q4row")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="QuitButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = 135.0
+offset_right = 259.0
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_tu360")
+texture_pressed = ExtResource("7_mpgls")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Score" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 186.0
+offset_right = 566.0
+offset_bottom = 367.0
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_v7udw")
+theme_override_font_sizes/font_size = 30
+text = "Current Score:"
+horizontal_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="Panel/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_v7udw")
+theme_override_font_sizes/font_size = 50
+text = "999999999999"
+horizontal_alignment = 1
+
+[node name="UnpauseButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 457.0
+offset_top = -32.0
+offset_right = 626.0
+offset_bottom = 102.0
+texture_normal = ExtResource("7_0w28j")
+texture_pressed = ExtResource("8_eoios")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("3_okixd")
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/UnpauseButton" to="." method="_on_unpause_button_pressed"]

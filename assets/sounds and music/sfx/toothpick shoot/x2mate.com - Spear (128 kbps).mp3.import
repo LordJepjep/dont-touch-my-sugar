@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuc21ftu7ax8o"
+path="res://.godot/imported/x2mate.com - Spear (128 kbps).mp3-69af42655e2de308b6d32657e2592f79.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/toothpick shoot/x2mate.com - Spear (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Spear (128 kbps).mp3-69af42655e2de308b6d32657e2592f79.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

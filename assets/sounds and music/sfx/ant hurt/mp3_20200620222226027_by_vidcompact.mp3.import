@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bblcxed12k8kh"
+path="res://.godot/imported/mp3_20200620222226027_by_vidcompact.mp3-74f0eb382c787f89b56506f1ecddd729.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/ant hurt/mp3_20200620222226027_by_vidcompact.mp3"
+dest_files=["res://.godot/imported/mp3_20200620222226027_by_vidcompact.mp3-74f0eb382c787f89b56506f1ecddd729.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

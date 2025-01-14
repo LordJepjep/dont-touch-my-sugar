@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=3 uid="uid://u7bjqntslie6"]
+
+[ext_resource type="Script" path="res://Scripts/loading_screen.gd" id="1_fwrqa"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="4_lijmt"]
+[ext_resource type="Texture2D" uid="uid://c4x174lu7s34a" path="res://assets/progressbar/BAR OUTLINE.png" id="5_mwkcf"]
+[ext_resource type="Texture2D" uid="uid://bt2rk8oml4cdq" path="res://assets/progressbar/BAR FILL.png" id="6_xrnv3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bxaie"]
+load_path = "res://.godot/imported/Main Menu mj.png-f169d399261d3f8c68df7d4a4101a0d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lll7a"]
+load_path = "res://.godot/imported/logoooo.png-feab40f433c794a7ce005269875cc3dc.ctex"
+
+[sub_resource type="Animation" id="Animation_cajgr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(713, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_p108y"]
+resource_name = "end_load"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 167.116, 713, -0.1, 174.096, 0, -662.01),
+"times": PackedFloat32Array(0, 0.8)
+}
+
+[sub_resource type="Animation" id="Animation_7grdb"]
+resource_name = "start_load"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"loading_screen_has_full_coverage"],
+"method": &"emit_signal"
+}]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(713, -0.25, 0, 0, -515.157, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0lcdu"]
+_data = {
+"RESET": SubResource("Animation_cajgr"),
+"end_load": SubResource("Animation_p108y"),
+"start_load": SubResource("Animation_7grdb")
+}
+
+[node name="LoadingScreen" type="Node2D"]
+position = Vector2(713, 0)
+script = ExtResource("1_fwrqa")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 4509.0
+offset_bottom = 8000.0
+scale = Vector2(0.16, 0.16)
+texture = SubResource("CompressedTexture2D_bxaie")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Banner" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.0056101
+anchor_top = -0.072498
+anchor_right = 0.0056101
+anchor_bottom = -0.072498
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 2608.0
+offset_bottom = 1584.0
+scale = Vector2(0.27, 0.27)
+texture = SubResource("CompressedTexture2D_lll7a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 0.1298
+offset_right = 713.13
+offset_bottom = 1269.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadingLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0238429
+anchor_top = 0.41844
+anchor_right = 0.970547
+anchor_bottom = 0.466509
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.937255, 0.945098, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_lijmt")
+theme_override_font_sizes/font_size = 75
+text = "Loading...
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 650.0
+offset_right = 3067.0
+offset_bottom = 1263.0
+scale = Vector2(0.23, 0.23)
+texture_under = ExtResource("5_mwkcf")
+texture_progress = ExtResource("6_xrnv3")
+
+[node name="ProgressLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00701262
+anchor_top = 0.523247
+anchor_right = 0.959327
+anchor_bottom = 0.594169
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_lijmt")
+theme_override_font_sizes/font_size = 100
+text = "0%
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0lcdu")
+}
+autoplay = "start_load"

@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://l3py85yeqjcv"]
+
+[ext_resource type="Texture2D" uid="uid://b4f58hqj43kkg" path="res://assets/hand/death/hand1.png" id="1_kcwy8"]
+[ext_resource type="Texture2D" uid="uid://d0w26q7cy7u5b" path="res://assets/hand/death/hand2.png" id="2_tj2v3"]
+[ext_resource type="Texture2D" uid="uid://kwmfy6pjv4xn" path="res://assets/hand/death/hand3.png" id="3_x6btg"]
+[ext_resource type="Texture2D" uid="uid://bkrh6kllwtor8" path="res://assets/hand/death/hand4.png" id="4_0k7eq"]
+[ext_resource type="Texture2D" uid="uid://qf8276bxelou" path="res://assets/hand/death/hand5.png" id="5_gnonb"]
+[ext_resource type="Texture2D" uid="uid://cft4xjad5a2eh" path="res://assets/hand/death/hand6.png" id="6_ouap8"]
+[ext_resource type="Texture2D" uid="uid://cdljxeear621h" path="res://assets/hand/death/hand7.png" id="7_cmvl3"]
+[ext_resource type="Texture2D" uid="uid://c7mxh00lgavbr" path="res://assets/hand/death/hand8.png" id="8_i1w50"]
+[ext_resource type="Texture2D" uid="uid://cma2haalkwbe0" path="res://assets/hand/death/hand9.png" id="9_eohyb"]
+[ext_resource type="Script" path="res://hand_death.gd" id="10_oi6g2"]
+[ext_resource type="AudioStream" uid="uid://bedsbe0eco0x6" path="res://assets/sounds and music/sfx/hand death/Vine Boom Sound Effect (Longer Verison For Real).mp3" id="11_rnxn4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4gpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kcwy8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_tj2v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x6btg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_0k7eq")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_gnonb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ouap8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cmvl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i1w50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eohyb")
+}, {
+"duration": 5.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HandDeath" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_f4gpl")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+script = ExtResource("10_oi6g2")
+
+[node name="snd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_rnxn4")
+volume_db = -10.0
+autoplay = true

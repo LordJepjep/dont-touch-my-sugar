@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4027dv3mu2l7"
+path="res://.godot/imported/Something being hit - Sound Effect.mp3-bd6b445bf6c1984220267295a56e2926.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/hand hurt/Something being hit - Sound Effect.mp3"
+dest_files=["res://.godot/imported/Something being hit - Sound Effect.mp3-bd6b445bf6c1984220267295a56e2926.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

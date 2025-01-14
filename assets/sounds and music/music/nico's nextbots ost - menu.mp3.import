@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv17bdi5y8ae6"
+path="res://.godot/imported/nico's nextbots ost - menu.mp3-e182273c36d53512d72153da82cf0deb.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/music/nico's nextbots ost - menu.mp3"
+dest_files=["res://.godot/imported/nico's nextbots ost - menu.mp3-e182273c36d53512d72153da82cf0deb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

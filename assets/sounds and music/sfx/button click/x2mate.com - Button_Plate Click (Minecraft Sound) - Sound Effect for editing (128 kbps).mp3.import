@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjnf7dhp88dfy"
+path="res://.godot/imported/x2mate.com - Button_Plate Click (Minecraft Sound) - Sound Effect for editing (128 kbps).mp3-b6a5167df4a4e6dc2da3547e5ef6dedf.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds and music/sfx/button click/x2mate.com - Button_Plate Click (Minecraft Sound) - Sound Effect for editing (128 kbps).mp3"
+dest_files=["res://.godot/imported/x2mate.com - Button_Plate Click (Minecraft Sound) - Sound Effect for editing (128 kbps).mp3-b6a5167df4a4e6dc2da3547e5ef6dedf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

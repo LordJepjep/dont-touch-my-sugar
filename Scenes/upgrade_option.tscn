@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ywybdlbug7q"]
+
+[ext_resource type="Script" path="res://UpgradeOption.gd" id="1_gblh0"]
+[ext_resource type="Texture2D" uid="uid://cc5ue1errdti5" path="res://assets/upgrades/add_damage.png" id="2_crjem"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="3_fp1yx"]
+
+[node name="UpgradeOption" type="ColorRect"]
+custom_minimum_size = Vector2(650, 150)
+offset_right = 512.0
+offset_bottom = 128.0
+color = Color(0.203922, 0.615686, 0.917647, 1)
+script = ExtResource("1_gblh0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 136.0
+offset_bottom = 136.0
+color = Color(0, 0, 0.0784314, 0.345098)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 1080.0
+offset_bottom = 1086.0
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_crjem")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("3_fp1yx")
+theme_override_font_sizes/font_size = 28
+text = "NAME"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("3_fp1yx")
+theme_override_font_sizes/font_size = 18
+text = "Description of Item"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 16.0
+offset_right = 609.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_fp1yx")
+theme_override_font_sizes/font_size = 20
+text = "Level: 1"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

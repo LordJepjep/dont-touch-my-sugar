@@ -1,0 +1,347 @@
+[gd_scene load_steps=7 format=3 uid="uid://6aom1koimkg4"]
+
+[ext_resource type="Script" path="res://Scenes/credit_screen.gd" id="1_von0n"]
+[ext_resource type="FontFile" uid="uid://bce5ycxtp86nk" path="res://assets/fonts/BD_Cartoon_Shout.ttf" id="2_id2qf"]
+[ext_resource type="Texture2D" uid="uid://tsyjgc5w8ea4" path="res://assets/menu/x button.png" id="3_26vvc"]
+[ext_resource type="Texture2D" uid="uid://bvjtpdy8847k3" path="res://assets/menu/x button pressed.png" id="4_hw52w"]
+[ext_resource type="AudioStream" uid="uid://25mk10ep4lew" path="res://assets/sounds and music/sfx/button click/pop.mp3" id="5_bhhp5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkvgt"]
+load_path = "res://.godot/imported/game over panel.png-3dc6cd97e4522d28c1a40fa36914add9.ctex"
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_von0n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.615686, 0.615686, 0.615686, 0.372549)
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -640.0
+offset_right = 343.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 40.0
+offset_right = 733.0
+offset_bottom = 1280.0
+texture = SubResource("CompressedTexture2D_jkvgt")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="CreditsLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.0
+offset_top = 121.0
+offset_right = 278.0
+offset_bottom = 205.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.0666667, 0.00784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 75
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 40.0
+offset_right = 752.0
+offset_bottom = 174.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_26vvc")
+texture_pressed = ExtResource("4_hw52w")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CreditsScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 270.0
+offset_right = 696.0
+offset_bottom = 1087.0
+horizontal_scroll_mode = 0
+
+[node name="CreditsContainer" type="VBoxContainer" parent="Panel/CreditsScrollContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Intro" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(698, 384)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 35
+text = "This project was developed for the course
+CC107: Mobile PRogramming
+by Students of Taguig City University
+
+This was also our first try at making a game so we
+We hope that you enjoyed
+playing!
+
+Thank you!"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="IntroCreditLabel" type="VBoxContainer" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Special Thanks" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/IntroCreditLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 45
+text = "Professor"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/IntroCreditLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 35
+text = "Jeric Nuez"
+horizontal_alignment = 1
+
+[node name="ProgrammerLabel2" type="VBoxContainer" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Programmer" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/ProgrammerLabel2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 45
+text = "Programmer"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/ProgrammerLabel2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 35
+text = "Jenfer Anthony A. Renton"
+horizontal_alignment = 1
+
+[node name="GraphicArtistsLabel" type="VBoxContainer" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Artist" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/GraphicArtistsLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 38
+text = "Graphics & Animations"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/GraphicArtistsLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 35
+text = "Mark Joshua Arriola
+Dave Omar Majelna
+Daniel Masong
+Nataniel  Segovia
+"
+horizontal_alignment = 1
+
+[node name="TestersLabel" type="VBoxContainer" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Testers" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/TestersLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 45
+text = "Testers"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/TestersLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 35
+text = "Raffy bayot
+Eljay Mhar Tabla
+Charles Perez
+& Everyone's Family 
+and Friends"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="VBoxContainer" parent="Panel/CreditsScrollContainer/CreditsContainer"]
+custom_minimum_size = Vector2(690, 0)
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Music" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/MusicLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 45
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/MusicLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 23
+text = "menu (Main Menu)
+by nico's nextbots "
+horizontal_alignment = 1
+
+[node name="YtLink" type="LinkButton" parent="Panel/CreditsScrollContainer/CreditsContainer/MusicLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.572549, 0.760784, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.285363, 0.570775, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 23
+action_mode = 0
+text = "      Link to Nicopatty's Youtube channel"
+underline = 1
+uri = "https://www.youtube.com/@nicopatty"
+
+[node name="Name2" type="Label" parent="Panel/CreditsScrollContainer/CreditsContainer/MusicLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 23
+text = "Glorious Morning 2 (In-Game)
+by Waterflame"
+horizontal_alignment = 1
+
+[node name="YtLink2" type="LinkButton" parent="Panel/CreditsScrollContainer/CreditsContainer/MusicLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.572549, 0.760784, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.285363, 0.570775, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_id2qf")
+theme_override_font_sizes/font_size = 23
+action_mode = 0
+text = "      Link to Waterflame's Youtube channel"
+underline = 1
+uri = "https://www.youtube.com/@WaterflameMusic"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_bhhp5")
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
